@@ -39,12 +39,12 @@ def sumatoria(num1,num2):
 ###Parametros:
 Limite maximo de 4 parametros por función. Si hay más, usar **kwargs o clases.
 
-###Correcto:
+####Correcto:
 
 def conectar_db(host, puerto, usuario, contraseña):
   ...
 
-###Incorrecto:
+####Incorrecto:
 
 def conectar_db(host, puerto, usuario, contraseña, timeout, ssl,...)
   ...
@@ -78,12 +78,12 @@ class Usuario:
 
 Mutable Defaults:
 
-###Incorrecto (lista como valor por defecto)
+####Incorrecto (lista como valor por defecto)
 
 def añadir(valor, inventario = []):
   inventario.append(valor)
 
-###Correcto:
+####Correcto:
 
 def añadir(valor, inventario):
   inventario = inventario or []
@@ -92,26 +92,26 @@ def añadir(valor, inventario):
 ##1.5 Modularización de Código:
 
 1. Principios Clave:
-	###Single Responsability Principle (SRP): Cada función/clase debe teenr una única responsabilidad.
-	###DRY (Don't Repeat Yourself): Evitar código duplicado creando funciones reutilizables.
-	###Abstracción: Ocultar detalles complejos detrás de interfaces simples.
+	#####Single Responsability Principle (SRP): Cada función/clase debe teenr una única responsabilidad.
+	#####DRY (Don't Repeat Yourself): Evitar código duplicado creando funciones reutilizables.
+	#####Abstracción: Ocultar detalles complejos detrás de interfaces simples.
 
 2. Estrategias para Dividir Código.
-	###2.1 Dividir funciones largas:
+	#####2.1 Dividir funciones largas:
 
 Ejemplo: Antes:
 	def process_data(raw_data):
-	###Paso 1: Limpiar datos
+	#Paso 1: Limpiar datos
 	limpio = []
 	for elemento in raw_data:
 		if elemento["value"] > 0:
 		  ...
 
-	###Paso 2: Calcular metricas
+	#Paso 2: Calcular metricas
 	total = sum(elemento["value"] for elemento in cleaned)
 	...
 
-	###Paso 3: Generar reporte
+	#Paso 3: Generar reporte
 	report = {
 		"total": total,
 		"average": avg,
@@ -138,7 +138,7 @@ Ejemplo: Despues:
 		metrics = calculate_metrics(cleaned_data)
 		...
 
-###Uso
+####Uso
 cleaned = clean_data(raw_data)
 report = generate_report(cleaned)
 
@@ -161,7 +161,7 @@ class DataProcessor:
 		total = sum(elemento["value"] for elemento in self.cleaned_data)
 		...
 
-###Uso
+####Uso
 processor = DataProcessor(raw_data)
 processor.clean()
 report = processor.calculate_metrics()
@@ -175,16 +175,3 @@ Anidamiento Profundo: Multiples niveles de if/for/try.
 Comentarios Excesivos: Si necesitas explicar cada seccion con comentarios largos.
 
 Dificultad para Hacer Test: Si es complicado escribir pruebas unitarias para el codigo.
-
-4. Ejemplo de Flujo de Trabajo
-
-1. Identificar Responsabilidades: Que hace cada parte del bloque
-
-2. Extraer Funciones: Convertir secciones en funciones/clases
-
-3. Revisar Dependencias: El nuevo codigo depende de variables globales Evitalo
-
-4. Testear: Asegurar que cada modulo funciona de forma aislada.
-
-5. Documentar: Agregar docstrings a cada funcion/clase nueva.
-
