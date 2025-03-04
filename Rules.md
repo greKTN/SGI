@@ -178,3 +178,98 @@ Ejemplo:
 ##### Comentarios Excesivos: Si necesitas explicar cada seccion con comentarios largos.
 
 ##### Dificultad para Hacer Test: Si es complicado escribir pruebas unitarias para el codigo.
+
+# Librerías
+
+## Pillow
+
+### 1.  Modularización de Código
+
+##### Funciones Reutilizables.
+
+**Ejemplo**: Separar operaciones en funciones específicas.
+
+	from PIL import Image
+	
+	def redimensionar(img, ancho, alto):
+		#Redimensiona manteniendo relación de aspecto
+		return img.resize((ancho,alto))
+
+### 2. Buenas Prácticas
+
+##### 2.1 Validación de Parámetros
+
+	from typing import Tuple
+	
+	def redimensionar(img, tamaño: Tuple[int,int]):
+		if len(tamaño) != 2:
+			...
+		return img.resize(tamaño)
+	
+### 3. Ejemplo de Flujo de Trabajo Modular
+
+	import cargar_imagen
+	import resize
+	
+	def procesar_imagen(ruta_entrada, ruta_salida):
+		#Cargar
+		img = cargar_imagen(ruta_entrada)
+	
+		#Transformar
+		img = resize.redimensionar(img, (800,600))
+		
+		#Guardar
+		img.save(ruta_salida, "JPEG", quality = 95)
+
+## Matplotlib
+
+### 1. Reglas de Sintaxis
+
+##### 1.1 Elementos Comunes de Gráficos:
+
+**Titulos y etiquetas:**
+	
+	ax.set_title("Titulo", fontsize = 14, fontweight = "bold")
+	ax.set_xlabel("Eje X", fontsize = 12)
+	ax.set_ylabel("Eje Y", fontsize = 12)
+
+
+**Leyendas:**
+
+	ax.plot(x, y, label = "Serie A")
+	ax.legend(loc = "upper right", frameon = false)
+
+**Limites:**
+
+	ax.set_xlim(0, 100)
+
+##### 1.2 Tipos de Gráficos Comunes
+
+**Gráfico de Líneas**
+
+	ax.plot(x, y, color = "#008000", linestyle = "--", linewidth = 2, marker = "o")
+
+**Gráfico de Barras:**
+
+	ax.bar(categorias, valores, color = ["#008000", "#FF0000"], edgecolor = "black")
+
+**Histograma:**
+
+	ax.hist(datos, bins = 20, alpha = 0.7, density = True, edgecolor = "white")
+
+### 2. Buenas Prácticas:
+
+##### 2.1 Cierre de figuras.
+
+Siempre cerrar figuras después de guardar
+
+	fig, ax = plt.subplots()
+	ax.plot(x, y)
+	plt.savefig("figura.png")
+	plt.close()  #Evita fugas de memoria
+
+### 3. Errores Comunes a Evitar.
+
+**No cerrar figuras:** Usar **plt.close()** o el contexto **with**
+
+**Estilos inconsistentes:** Definir un estilo globlal para todo el proyecto.
