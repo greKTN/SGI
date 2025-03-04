@@ -3,9 +3,9 @@
 ## 1.1 Variables.
 
 ### Nombres.
-snake_case para variables y funciones
+**snake_case** para variables y funciones
 
-UPPER_SNAKE_CASE para constantes
+**UPPER_SNAKE_CASE** para constantes
 
 Evitar nombres genericos como x, dato.
 
