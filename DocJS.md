@@ -12,11 +12,6 @@
 | `guardar_reporte(datos, tipo_reporte)`   | `datos`: Contiene la información del reporte.<br><br>`tipo_reporte`: Contiene el tipo especifico de reporte de avería  |None| Comprueba que la información del reporte sea correcta, en cuyo caso la almacena en la base de datos.|
 | `Campos comunes()`   |None|Datos relevantes para el reporte de avería, como fecha, hora, descripción, etc.| Pide al usuario toda la información relevanta para el reporte, posteriormente almacenandola y retornandola.|
 | `validar_datos(tipo_averia, descripcion, ciudad, direccion)`   |`tipo_averia:` Contiene el tipo específico de avería a resolver. <br><br> `descripcion:` Especificaciones acerca del problema <br><br>  `ciudad:` La localización desde la que se hace el reporte <br><br> `direccion:` El sitio en el cual se encuentra la avería |`True` si todos los campos fueron llenados correctamente; de otra forma, `false`.| Comprueba que todos los campos requeridos para el reporte sean llenados correctamente antes de almacenarlos.|
-| `generar_reporte(tipo_reporte, opciones_averia)`   |`tipo_reporte`: Contiene el tipo especifico de reporte de avería <br><br>`opciones_averia`:  Contiene las distintas averias que pueden ocurrir |None.| Get all the data from one user by email.|
-| `verifyUser(id)`   |`id`: The unique identifier of the user|`true` if the process was successful; otherwise, `false`.| Get all the data from one user by email.|
-
-- **Folder Structure:**  
-  This file is located in the `/utils` directory, which is dedicated to reusable helper functions.
-
----
-
+| `generar_reporte(tipo_reporte, opciones_averia)`   |`tipo_reporte`: Contiene el tipo especifico de reporte de avería <br><br>`opciones_averia`:  Contiene las distintas averias que pueden ocurrir |None.| Obtiene la fecha y hora actual, posteriormente procesa la información del reporte, el tipo del mismo, generando un número de reporte, finalmente verifica que los datos sean correctos y en cuyo caso lo almacena y lo muestra al usuario.|
+| `mostrar_resumen(datos)`   |`datos`: Contiene la información del reporte|None.|Recopila los datos del reporte generado y los muestra al usuario.|
+| `menu()`   |None|None.|Obtiene la fecha y hora actual, crea una interfaz de usuario en la cual se puede escoger el tipo de averia de la cual se desea realizar el reporte.|
