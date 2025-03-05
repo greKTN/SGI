@@ -15,3 +15,8 @@
 | `generar_reporte(tipo_reporte, opciones_averia)`   |`tipo_reporte`: Contiene el tipo especifico de reporte de avería <br><br>`opciones_averia`:  Contiene las distintas averias que pueden ocurrir |None.| Obtiene la fecha y hora actual, posteriormente procesa la información del reporte, el tipo del mismo, generando un número de reporte, finalmente verifica que los datos sean correctos y en cuyo caso lo almacena y lo muestra al usuario.|
 | `mostrar_resumen(datos)`   |`datos`: Contiene la información del reporte|None.|Recopila los datos del reporte generado y los muestra al usuario.|
 | `menu()`   |None|None.|Obtiene la fecha y hora actual, crea una interfaz de usuario en la cual se puede escoger el tipo de averia de la cual se desea realizar el reporte.|
+
+### **Módulo Principal**
+| **Name**         | **Args** | **Return**          | **Description**     |
+|--------------|------|--------------|--------------|
+| `main()`  | None | None   |Muestra el menú principal del sistema, instanciando los diferentes apartados dependiendo de la selección que realice el usuario|
